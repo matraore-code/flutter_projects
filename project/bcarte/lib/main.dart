@@ -1,8 +1,8 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:bcarte/routes.dart';
+import 'package:bcarte/screens/splash_screen/splash_screen.dart';
 import 'package:flutter/material.dart';
-import 'screens/getStarted/get_started_screen.dart';
 import 'theme.dart';
 
 void main() {
@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
       title: 'B-CARTE',
       theme: theme(),
       //home: const GetStartedScreen(),
-      initialRoute: GetStartedScreen.routeName,
+      initialRoute: SplashScreen.routeName,
       routes: routes,
     );
   }

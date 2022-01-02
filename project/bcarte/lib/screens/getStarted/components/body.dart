@@ -1,5 +1,6 @@
 import 'package:bcarte/constants.dart';
 import 'package:bcarte/screens/sign_in/sign_in_screen.dart';
+import 'package:bcarte/screens/sign_up/sign_up_screen.dart';
 import 'package:bcarte/size_config.dart';
 import 'package:flutter/material.dart';
 
@@ -69,9 +70,16 @@ class _BodyState extends State<Body> {
                           children: List.generate(splashData.length,
                               (index) => buildDots(index: index)),
                         ),
-                        const Spacer(flex: 3),
+                        const Spacer(flex: 2),
                         DefaultButton(
-                          text: "Get Started",
+                          text: "Create an account",
+                          press: (){
+                            Navigator.pushNamed(context, SignUpScreen.routeName);
+                          },
+                        ),
+                        const Spacer(flex: 1),
+                        DefaultButton(
+                          text: "Connect to account",
                           press: (){
                             Navigator.pushNamed(context, SignInScreen.routeName);
                           },

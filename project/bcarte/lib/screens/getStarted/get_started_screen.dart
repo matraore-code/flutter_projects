@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 class GetStartedScreen extends StatelessWidget {
   const GetStartedScreen({Key? key}) : super(key: key);
-  static String routeName = "/splash";
+  static String routeName = "/getStarted";
 
   @override
   Widget build(BuildContext context) {

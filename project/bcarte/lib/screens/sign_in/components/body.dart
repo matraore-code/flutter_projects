@@ -1,13 +1,13 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, duplicate_ignore
 
+import 'package:bcarte/components/social_card.dart';
 import 'package:bcarte/constants.dart';
+import 'package:bcarte/screens/forgot_pass.dart/forgot_password_screen.dart';
+import 'package:bcarte/screens/sign_in/components/sign_in_form.dart';
+import 'package:bcarte/screens/sign_up/sign_up_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-import '../../../components/form_error.dart';
 
-import '../../../components/custom_suffix_icons.dart';
 import '../../../size_config.dart';
-import '../../../components/default_button.dart';
 
 class Body extends StatelessWidget {
   @override
@@ -18,21 +18,55 @@ class Body extends StatelessWidget {
         child: Padding(
           padding:
               EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
-          child: Column(
-            children: [
-              // ignore: prefer_const_constructors
-              Text("Welcome Back",
-                  // ignore: prefer_const_constructors
-                  style: TextStyle(
-                      color: Colors.black,
-                      fontSize: getProportionateScreenWidth(28),
-                      fontWeight: FontWeight.w500)),
-              Text(
-                "Sign in with your mail and your password \nor continue with your social media",
-                textAlign: TextAlign.center,
-              ),
-              SignForm(),
-            ],
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                SizedBox(
+                  height: SizeConfig.screenHeight * 0.04,
+                ),
+
+                // ignore: prefer_const_constructors
+                Text("Welcome Back",
+                    // ignore: prefer_const_constructors
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontSize: getProportionateScreenWidth(28),
+                        fontWeight: FontWeight.w500)),
+                Text(
+                  "Sign in with your mail and your password \nor continue with your social media",
+                  textAlign: TextAlign.center,
+                ),
+                SizedBox(
+                  height: SizeConfig.screenHeight * 0.08,
+                ),
+                SignForm(),
+                SizedBox(
+                  height: SizeConfig.screenHeight * 0.08,
+                ),
+
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SocialCard(
+                      icons: "assets/images/icons/google.svg",
+                      press: () {},
+                    ),
+                    SocialCard(
+                      icons: "assets/images/icons/linkedin.svg",
+                      press: () {},
+                    ),
+                    SocialCard(
+                      icons: "assets/images/icons/twitter.svg",
+                      press: () {},
+                    )
+                  ],
+                ),
+                SizedBox(
+                  height: getProportionateScreenHeight(20),
+                ),
+                NoAccountText()
+              ],
+            ),
           ),
         ),
       ),
@@ -40,94 +74,29 @@ class Body extends StatelessWidget {
   }
 }
 
-class SignForm extends StatefulWidget {
-  const SignForm({Key? key}) : super(key: key);
-
-  @override
-  _SignFormState createState() => _SignFormState();
-}
-
-class _SignFormState extends State<SignForm> {
-  final _formKey = GlobalKey<FormState>();
-  final List<String> errors = [];
+class NoAccountText extends StatelessWidget {
+  const NoAccountText({
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Form(
-      key: _formKey,
-      child: Column(
-        children: [
-          buildEmailTextForm(),
-          SizedBox(
-            height: getProportionateScreenHeight(20),
-          ),
-          buildPasswordForm(),
-          SizedBox(
-            height: getProportionateScreenHeight(20),
-          ),
-          formError(errors: errors),
-          DefaultButton(
-            text: 'Sign In',
-            press: () {
-              if (_formKey.currentState!.validate()) {
-                _formKey.currentState!.save();
-              }
-            },
-          )
-        ],
-      ),
-    );
-  }
-
-  TextFormField buildPasswordForm() {
-    return TextFormField(
-      obscureText: true,
-      decoration: InputDecoration(
-          labelText: "Password",
-          hintText: "Enter your password",
-          floatingLabelBehavior: FloatingLabelBehavior.always,
-          suffixIcon: customSuffixIcon(
-            svgIcon: 'assets/icons/Lock.svg',
-          )),
-    );
-  }
-
-  TextFormField buildEmailTextForm() {
-    return TextFormField(
-      keyboardType: TextInputType.emailAddress,
-      onChanged: (value) {
-        if (value.isNotEmpty && errors.contains(kEmailNullError)) {
-          setState(() {
-            errors.remove(kEmailNullError);
-          });
-        } else if (emailValidatorRegExp.hasMatch(value) &&
-            errors.contains(kInvalidationEmailError)) {
-          setState(() {
-            errors.remove(kInvalidationEmailError);
-          });
-        }
-        return null;
-      },
-      validator: (value) {
-        if (value!.isEmpty && !errors.contains(kEmailNullError)) {
-          setState(() {
-            errors.add(kEmailNullError);
-          });
-        } else if (!emailValidatorRegExp.hasMatch(value) &&
-            !errors.contains(kInvalidationEmailError)) {
-          setState(() {
-            errors.add(kInvalidationEmailError);
-          });
-        }
-        return null;
-      },
-      decoration: InputDecoration(
-          labelText: "Email",
-          hintText: "Enter your mail",
-          floatingLabelBehavior: FloatingLabelBehavior.always,
-          suffixIcon: customSuffixIcon(
-            svgIcon: 'assets/icons/Mail.svg',
-          )),
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Text(
+          "Don't have an account ?",
+          style:
+              TextStyle(fontSize: getProportionateScreenWidth(16)),
+        ),
+        GestureDetector(
+          onTap: () => Navigator.pushNamed(context, SignUpScreen.routeName),
+          child: Text("Sign Up",
+              style: TextStyle(
+                  fontSize: getProportionateScreenWidth(16),
+                  color: kPrimaryColor)),
+        )
+      ],
     );
   }
 }
