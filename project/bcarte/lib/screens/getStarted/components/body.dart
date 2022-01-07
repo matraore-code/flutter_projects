@@ -1,3 +1,4 @@
+import 'package:bcarte/components/button_outline.dart';
 import 'package:bcarte/constants.dart';
 import 'package:bcarte/screens/sign_in/sign_in_screen.dart';
 import 'package:bcarte/screens/sign_up/sign_up_screen.dart';
@@ -71,7 +72,7 @@ class _BodyState extends State<Body> {
                               (index) => buildDots(index: index)),
                         ),
                         const Spacer(flex: 2),
-                        DefaultButton(
+                        WhiteButton(
                           text: "Create an account",
                           press: (){
                             Navigator.pushNamed(context, SignUpScreen.routeName);

@@ -1,17 +1,20 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+
+import '../../size_config.dart';
 import 'components/body.dart';
 
-class SignUpScreen extends StatelessWidget {
-  static String routeName = '/sign_up';
-  const SignUpScreen({Key? key}) : super(key: key);
+class OptScreen extends StatelessWidget {
+  static String routeName = '/opt';
+  const OptScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    SizeConfig().init(context);
     return Scaffold(
       appBar: AppBar(
-        title: Text("Sign Up"),
+        title: Text("OTP Verification"),
       ),
       body: Body(),
     );

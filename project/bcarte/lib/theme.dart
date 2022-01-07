@@ -16,7 +16,7 @@ ThemeData theme() {
         ),
         inputDecorationTheme: inputDecorationTheme(),
         scaffoldBackgroundColor: Colors.white,
-        fontFamily: "OpenSans",
+        fontFamily: "Lato",
       );
 }
 

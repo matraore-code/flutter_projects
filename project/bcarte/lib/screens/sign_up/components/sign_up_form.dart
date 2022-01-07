@@ -3,6 +3,7 @@
 import 'package:bcarte/components/custom_suffix_icons.dart';
 import 'package:bcarte/components/default_button.dart';
 import 'package:bcarte/components/form_error.dart';
+import 'package:bcarte/screens/setting_profile/setting_profile_screen.dart';
 import 'package:bcarte/screens/sign_in/sign_in_screen.dart';
 import 'package:flutter/material.dart';
 import '../../../constants.dart';
@@ -54,8 +55,7 @@ class _SignUpFormState extends State<SignUpForm> {
             press: () {
               if (_formKey.currentState!.validate()) {
                 _formKey.currentState!.save();
-                // if all are valid then go to success screen
-                Navigator.pushNamed(context, SignInScreen.routeName);
+                Navigator.pushNamed(context, SettingProfile.routeName);
               }
             },
           ),
