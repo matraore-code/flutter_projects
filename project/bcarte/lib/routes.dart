@@ -1,8 +1,8 @@
-
 // ignore_for_file: prefer_const_constructors
 
 import 'package:bcarte/screens/card_screen/card_details/card_details.dart';
 import 'package:bcarte/screens/card_screen/card_screen.dart';
+import 'package:bcarte/screens/card_screen/edit_card/edit_card.dart';
 import 'package:bcarte/screens/contact_screen/contact_screen.dart';
 import 'package:bcarte/screens/forgot_pass.dart/forgot_password_screen.dart';
 import 'package:bcarte/screens/home_screen/home_screen.dart';
@@ -17,7 +17,7 @@ import 'package:bcarte/screens/splash_screen/splash_screen.dart';
 import 'package:flutter/widgets.dart';
 
 final Map<String, WidgetBuilder> routes = {
-  SplashScreen.routeName : (context) => SplashScreen(),
+  SplashScreen.routeName: (context) => SplashScreen(),
   GetStartedScreen.routeName: (context) => GetStartedScreen(),
   SignInScreen.routeName: (context) => SignInScreen(),
   ForgotPasswordScreen.routeName: (context) => ForgotPasswordScreen(),
@@ -29,5 +29,6 @@ final Map<String, WidgetBuilder> routes = {
   ScanScreen.routeName: (context) => ScanScreen(),
   SettingScreen.routeName: (context) => SettingScreen(),
   CardScreen.routeName: (context) => CardScreen(),
-  CardDetail.routeName:(context) => CardDetail(),
+  CardDetail.routeName: (context) => CardDetail(),
+  EditCard.routeName: (context) => EditCard(),
 };

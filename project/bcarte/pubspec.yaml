@@ -29,6 +29,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  font_awesome_flutter: ^9.2.0
+  modal_bottom_sheet: ^2.0.0
 
   persistent_bottom_nav_bar: any
   

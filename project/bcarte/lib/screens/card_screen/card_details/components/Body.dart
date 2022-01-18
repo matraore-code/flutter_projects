@@ -126,28 +126,10 @@ class _BodyState extends State<Body> {
               margin: EdgeInsets.only(left: 20, right: 15),
               child: Column(
                 children: [
-                  Row(
-                    children: <Widget>[
-                      Container(
-                        width: 50,
-                        height: 50,
-                        margin: EdgeInsets.all(8),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(50.0),
-                          color: kPrimaryColor,
-                        ),
-                        child: Icon(Icons.phone, color: Colors.white,),
-                      ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text("+212 600043240", style: TextStyle(fontSize: 18),),
-                          Text("Personal phone")
-                        ],
-                      )
-                    ],
+                  infosDetails("Personal phone", "+21260000000"),
+                  SizedBox(
+                    height: 10,
                   ),
-                  SizedBox(height: 10,),
                   Row(
                     children: <Widget>[
                       Container(
@@ -158,18 +140,26 @@ class _BodyState extends State<Body> {
                           borderRadius: BorderRadius.circular(50.0),
                           color: kPrimaryColor,
                         ),
-                        child: Icon(Icons.mail, color: Colors.white,),
+                        child: Icon(
+                          Icons.mail,
+                          color: Colors.white,
+                        ),
                       ),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text("jennifer@gmail.com", style: TextStyle(fontSize: 18),),
+                          Text(
+                            "jennifer@gmail.com",
+                            style: TextStyle(fontSize: 18),
+                          ),
                           Text("Personal email")
                         ],
                       )
                     ],
                   ),
-                  SizedBox(height: 10,),
+                  SizedBox(
+                    height: 10,
+                  ),
                   Row(
                     children: <Widget>[
                       Container(
@@ -180,17 +170,26 @@ class _BodyState extends State<Body> {
                           borderRadius: BorderRadius.circular(50.0),
                           color: kPrimaryColor,
                         ),
-                        child: Icon(Icons.facebook, color: Colors.white,),
+                        child: Icon(
+                          Icons.facebook,
+                          color: Colors.white,
+                        ),
                       ),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text("jennifer@gmail.com", style: TextStyle(fontSize: 18),),
+                          Text(
+                            "jennifer@gmail.com",
+                            style: TextStyle(fontSize: 18),
+                          ),
                           Text("Personal email")
                         ],
                       )
                     ],
-                  ),SizedBox(height: 10,),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
                   Row(
                     children: <Widget>[
                       Container(
@@ -201,17 +200,26 @@ class _BodyState extends State<Body> {
                           borderRadius: BorderRadius.circular(50.0),
                           color: kPrimaryColor,
                         ),
-                        child: Icon(Icons.facebook, color: Colors.white,),
+                        child: Icon(
+                          Icons.facebook,
+                          color: Colors.white,
+                        ),
                       ),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text("jennifer@gmail.com", style: TextStyle(fontSize: 18),),
+                          Text(
+                            "jennifer@gmail.com",
+                            style: TextStyle(fontSize: 18),
+                          ),
                           Text("Personal email")
                         ],
                       )
                     ],
-                  ),SizedBox(height: 10,),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
                   Row(
                     children: <Widget>[
                       Container(
@@ -222,17 +230,26 @@ class _BodyState extends State<Body> {
                           borderRadius: BorderRadius.circular(50.0),
                           color: kPrimaryColor,
                         ),
-                        child: Icon(Icons.mail, color: Colors.white,),
+                        child: Icon(
+                          Icons.mail,
+                          color: Colors.white,
+                        ),
                       ),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text("jennifer@gmail.com", style: TextStyle(fontSize: 18),),
+                          Text(
+                            "jennifer@gmail.com",
+                            style: TextStyle(fontSize: 18),
+                          ),
                           Text("Personal email")
                         ],
                       )
                     ],
-                  ),SizedBox(height: 10,),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
                   Row(
                     children: <Widget>[
                       Container(
@@ -243,12 +260,18 @@ class _BodyState extends State<Body> {
                           borderRadius: BorderRadius.circular(50.0),
                           color: kPrimaryColor,
                         ),
-                        child: Icon(Icons.mail, color: Colors.white,),
+                        child: Icon(
+                          Icons.mail,
+                          color: Colors.white,
+                        ),
                       ),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text("jennifer@gmail.com", style: TextStyle(fontSize: 18),),
+                          Text(
+                            "jennifer@gmail.com",
+                            style: TextStyle(fontSize: 18),
+                          ),
                           Text("Personal email")
                         ],
                       )
@@ -262,7 +285,36 @@ class _BodyState extends State<Body> {
           ],
         ),
       ),
-      
+    );
+  }
+
+  Row infosDetails(String tex, String datas) {
+    return Row(
+      children: <Widget>[
+        Container(
+          width: 50,
+          height: 50,
+          margin: EdgeInsets.all(8),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(50.0),
+            color: kPrimaryColor,
+          ),
+          child: Icon(
+            Icons.phone,
+            color: Colors.white,
+          ),
+        ),
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              datas,
+              style: TextStyle(fontSize: 18),
+            ),
+            Text(tex)
+          ],
+        )
+      ],
     );
   }
 }
